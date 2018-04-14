@@ -9,6 +9,7 @@ const app = express()
 const PORT = 8080
 // Route requires
 const user = require('./routes/user')
+console.log("=======================================");
 
 // MIDDLEWARE
 app.use(morgan('dev'))
@@ -33,6 +34,7 @@ app.use(
 app.use(passport.initialize())
 app.use(passport.session()) // calls the deserializeUser
 
+app.get('/ping', (req, res) => res.send('pong'));
 
 // Routes
 app.use('/user', user)
